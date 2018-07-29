@@ -63,7 +63,7 @@ const layout = {
   xaxis: {
     range: [-1,11],
     showgrid: false,
-@ -5619,18 +73,50 @@ var layout = {
+var layout = {
     showticklabels: false
   },
   yaxis: {
@@ -117,7 +117,7 @@ var data2 = [];
 
 // adding line plots for elements with color gradient
 let xSegment = new Array(24), trace = new Array(24);
-@ -5648,10 +134,13 @@ for (let i = 0; i < 24; i++) {
+for (let i = 0; i < 24; i++) {
       width: 4
     }
   };
@@ -133,7 +133,7 @@ Plotly.plot('graph3', data3, layout3); // initial plot 2
 
 dt = 0.00001; t = 0; n = 5;
 
-@ -5670,6 +159,49 @@ $('.start.button').on('click',begin_animation)
+$('.start.button').on('click',begin_animation)
 //   $('.pause.button').addClass('active');}).on('click',() =>{
 //   $('.start.button').removeClass('active');});// remember to add pause function to reset button !!
 
