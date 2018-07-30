@@ -8,7 +8,7 @@ for (let i = 0; i < 25; i++) {
 }
 // input mode shapes for 24-element rod
 let allShapes = {};
-$.getJSON('https://rawgit.com/Imperial-visualizations/Aeronautical-Visualizations/master/Hang/Rod_Vibration/data.json',function(allShape){
+$.getJSON('https://cdn.rawgit.com/Nanorice/VisualizationProjects/d5af58de/jsonModeShape.json',function(allShape){
 allShapes=allShape
 });
 // set color gradient
@@ -87,10 +87,18 @@ $('.pause.button').on('click',()=>{
 
 $('.start.button').on('click',begin_animation)
 
-// $('.reset.button').on('click',()=>{
-//   reset($("#element").val())}).on('click',() =>{
-//   $('.pause.button').addClass('active');}).on('click',() =>{
-//   $('.start.button').removeClass('active');});// remember to add pause function to reset button !!
+function handleElement(){
+  let elementNumber = parseFloat($("#element").val());
+  $("#element").on("input",reset(elementNumber));
+  // .on('change',getShape(elementNumber));
+  $("#elementDisplay").html(elementNumber);
+  //CHANGE MODE MAX
+  let new_max = parseFloat($('input#element').val())+1;
+  $('input#modeIndex').attr('max',new_max)
+  $('#sliderMax').html(new_max)
+
+  updatePlot1(elementNumber);
+}
 
 let anim;
 
