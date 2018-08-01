@@ -11,40 +11,11 @@ $.getJSON('https://cdn.rawgit.com/Nanorice/VisualizationProjects/d5af58de/jsonMo
 allShapes=allShape
 });
 
-// var layout = {
-//     autosize: false,
-//     width: 500,
-//     height: 150,
-//     margin: {
-//       l: 50,
-//       r: 50,
-//       b: 100,
-//       t: 100,
-//       pad: 4
-//     },
-//     xaxis: {
-//       range: [-1,11],
-//       showgrid: false,
-//     yaxis: {
-//       range: [-2,1],
-//       range: [-0.5,0.5],
-//       showgrid: false,
-//       zeroline: false,
-//       showline: false,
-//       autotick: false,
-//       autotick: false,
-//       ticks: '',
-//       showticklabels: false
-//     },
-//     showlegend:false
-//   }
-// }
-
 
 var layout12 = {
   autosize: true,
     width: 500,
-    height: 120,
+    height: 130,
     margin: {
       l: 50,
       r: 50,
@@ -62,7 +33,7 @@ var layout12 = {
     showticklabels: false
   },
   yaxis: {
-    range: [-2,2],
+    range: [-4,4],
     showgrid: false,
     zeroline: false,
     showline: false,
@@ -122,7 +93,7 @@ for (let i = 0; i < 24; i++) {
     mode: 'lines',
     line: {
       color: i*5,
-      width: 4
+      width: 8
     }
   };
   data1.push(trace1[i]);
@@ -147,7 +118,7 @@ for (let i = 0; i < 24; i++) {
     mode: 'lines',
     line: {
       color: i*5,
-      width: 4
+      width: 8
     }
   };
   data2.push(trace2[i]);
@@ -371,11 +342,67 @@ function begin_animation(){
     clearInterval(anim)
   };
 
-  // $('.reset.button').on('click',{
-  //   $("#element").val() = '24'
-  //   // $("#modeIndex").val() = toString(1)
-  // }).on('click',(){
-  //   clearInterval(anim)
-  //   $(this).text("Start")
-  // });
 }
+
+/** --------------------------- Function for modal ---------------------------- **/
+
+//Get modal element
+let modal = document.getElementById("guideModal");
+let modalContent = document.getElementsByClassName("modalContent");
+
+//Listen for outside click
+window.addEventListener("click", outsideClick);
+
+//Function to open modal
+function openModal(){
+    modal.style.display = "block";
+    modalContent[0].style.display = "block";
+    modalContent[1].style.display = "none";
+    modalContent[2].style.display = "none";
+    modalContent[3].style.display = "none";
+}
+
+function scrollToTop(){
+    //Scroll to top
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
+
+function scrollToBottom(){
+    //Scroll to top
+    document.body.scrollTop = 1000; // For Safari
+    document.documentElement.scrollTop = 1000; // For Chrome, Firefox, IE and Opera
+}
+
+//Function to close modal
+function closeModal(){
+    modal.style.display = "none";
+}
+
+//Function to close modal if outside click
+function outsideClick(e){
+    if(e.target === modal){
+        modal.style.display = "none";
+        currentSlide(1);
+    }
+}
+
+//Function to close current modal and open next modal
+function nextModal(n){
+    modalContent[n].style.display = "none";
+    modalContent[n+1].style.display = "block";
+}
+/** --------------------------- Function for hiding after few seconds---------------------------- **/
+/* Function to make fade out instruction tab after window load */
+//Display nav bar
+function navShow(){document.getElementById("instructions").style.left = "30px";}
+navShow();
+
+//Hide nav bar
+function navHide(){document.getElementById("instructions").style.left = "5px";
+    document.getElementById("instructions").style.transitionDuration = "1s";}
+
+//Set timeout in milliseconds
+setTimeout(function() {
+    navHide();
+}, 3000);
