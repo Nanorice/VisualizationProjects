@@ -150,24 +150,15 @@
 #modal_4{
     position: relative;
     top: 315px;
-    left: 350px;
+    left: 50px;
 }
 
-/* #modal_5{
+#modal_5{
     position: relative;
-    top: 510px;
-    left: 480px;
+    top: 315px;
+    left: 600px;
 }
 
-#modal_6{
-    position: relative;
-    top: 355px;
-    left: 650px;
-}
-
-#modal_7{
-    margin: 20% auto;
-} */
 
 .closeBtn{
     margin-top: -15px;

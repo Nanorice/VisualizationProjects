@@ -155,7 +155,7 @@
               Number of Elements:
               <span id="elementDisplay">24</span>
             </label>
-            <span class = "tooltiptext">text</span>
+            <span class = "tooltiptext">Adjust the number of elements you want to discritize the rod to see the ddiffernece.</span>
           </div>
           <input type="range" id="element" name="element" min="1" max="24" value="24" onchange="handleElement()">
           <span class="sliderMin">1</span><span class="sliderMax">24</span>
@@ -176,7 +176,10 @@
 
         <div class = row>
           <div class="start button" id="start">Start</div>
+          <!-- <div class="theory button" id="theory" href='RodPage1.html'>Theory</div> -->
+          <a href="RodPage1.html" target="_blank">Go to the Theory</a>
         </div>
+        <!-- <div class='row'><a href="RodPage1.html" target="_blank">Theory</a></div> -->
 
 
         <div id="guideModal" class="modal">
@@ -198,7 +201,7 @@
                 <span class="closeBtn" onclick="closeModal()">&times;</span>
                 <div class="modalBody">
                     <p>
-                        The control interface inputs the material properties as well as the specifications of FEA used.
+                        The control interface inputs the material properties as well as the specifications of FEA used. Note only the first dew modes are valid.
                     </p>
                     <button class="nextBtn" onclick="nextModal(1)">Continue</button>
                 </div>
@@ -213,10 +216,20 @@
                     <button class="nextBtn" onclick="nextModal(2); scrollToBottom(); showSpoiler();">Continue</button>
                 </div>
             </div>
+
+            <div class="modalContent" id="modal_4">
+              <span class="closeBtn" onclick="closeModal()">&times;</span>
+              <div class="modalBody">
+                  <p>
+                      The visulization parts shows the undeformed and deformed rod as well as its corresponding mode shapes.                   
+                  </p>
+                  <button class="nextBtn" onclick="nextModal(3); scrollToBottom(); showSpoiler();">Continue</button>
+              </div>
+          </div>
     
           
     
-            <div class="modalContent" id="modal_4">
+            <div class="modalContent" id="modal_5">
                 <span class="closeBtn" onclick="closeModal()">&times;</span>
                 <div class="modalBody">
                     <p>
