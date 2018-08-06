@@ -9,48 +9,56 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://rawgit.com/Imperial-visualizations/Physics-Visualizations/master/css/skeleton.css">
     <link rel="stylesheet" href="https://rawgit.com/Imperial-visualizations/Physics-Visualizations/master/css/style.css">
-    <style>
+    <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+        <style>
                 .tooltip {
-                    position: relative;
-                    display: inline-block;
+                        position: relative;
+                        display: inline-block;
                 }
-                
+                        
                 .tooltip .tooltiptext {
-                    visibility: hidden;
-                    width: 170px;
-                    background-color: #003E74;
-                    color: #fff;
-                    text-align: center;
-                    border-radius: 6px;
-                    padding: 5px 0;
-                
-                    /* Position the tooltip */
-                    position: absolute;
-                    z-index: 1;
-                    top: -5px;
-                    left: 105%; 
+                        visibility: hidden;
+                        width: 170px;
+                        background-color: #003E74;
+                        color: #fff;
+                        text-align: center;
+                        border-radius: 6px;
+                        padding: 5px 0;
+                        
+                        /* Position the tooltip */
+                        position: absolute;
+                        z-index: 1;
+                        top: -5px;
+                        left: 105%; 
                 }
-        
+                
                 .tooltip .tooltiptext::after {
-                    content: "";
-                    position: absolute;
-                    top: 50%;
-                    right: 100%;
-                    margin-top: -5px;
-                    border-width: 5px;
-                    border-style: solid;
-                    border-color: transparent #003E74 transparent transparent;
+                        content: "";
+                        position: absolute;
+                        top: 50%;
+                        right: 100%;
+                        margin-top: -5px;
+                        border-width: 5px;
+                        border-style: solid;
+                        border-color: transparent #003E74 transparent transparent;
                 }
-                
+                        
                 .tooltip:hover .tooltiptext {
-                    opacity: 0.8;
-                    visibility: visible;
+                        opacity: 0.8;
+                        visibility: visible;
                 }
         </style>
 </head>
 <body>
     <!-- *Instructions nav bar* -->
     <!-- <div id="modal" class="sideNav verticalText">Instructions for use</div> -->
+    <div id="instructions" class="sideNav verticalText" onmouseenter="navShow()" onmouseleave="navHide()" onclick="openModal(); scrollToTop(); currentSlide(1);">
+        Instructions for use
+    </div>
+    <br>
+    <br>
+    <br>
     <div class = "container">
         <div class = "row">
                 <div class = "six columns">
@@ -64,7 +72,7 @@
                                                 </label>
                                                 <span class = "tooltiptext">slider to change the force magnitude from 1e5 to 1e6</span>
                                         </div>
-                                        <input type="range" orient="vertical" id="forceMag" name="element" min="1" max="20" value="5" onchange="handleForce()" step = "1">
+                                        <input type="range" orient="vertical" id="forceMag" name="element" min="1" max="20" value="5" oninput="handleForce()" step = "1">
                                         <span class="sliderMin"></span><span class="sliderMax"></span>
                                 </div>
 
@@ -104,7 +112,7 @@
                                                 </label>
                                                 <span class = "tooltiptext">slider to change the force magnitude from 1e5 to 1e6</span>
                                         </div>
-                                        <input type="range" orient="vertical" id="x" name="element" min="6" max="9" value="7.5" onchange="handleX()" step = "0.1">
+                                        <input type="range" orient="vertical" id="x" name="element" min="6" max="9" value="7.5" oninput="handleX()" step = "0.1">
                                         <span class="sliderMin"></span><span class="sliderMax"></span>
                                 </div>
 
@@ -117,6 +125,6 @@
         </div>
         
     </div>
-    <script src = "truss.js"></script>
+    <script src = "trussTemp.js"></script>
 </body>
 </html>

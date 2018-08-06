@@ -3,7 +3,7 @@ $.getJSON('https://cdn.rawgit.com/Nanorice/VisualizationProjects/d4cc8a00/trussD
 shapes=shape
 });
 
-// graph 2.1
+// graph 2.1 initial plot
 
 var ele_nod_x = [], ele_nod_y = [];
 var nod_coor_x = [], nod_coor_y = [];
@@ -33,7 +33,7 @@ var layout = {
     showticklabels: false
   },
   yaxis: {
-    range: [-1,9],
+    range: [-2,9],
     showgrid: true,
     zeroline: false,
     showline: true,
@@ -128,7 +128,7 @@ function updatePlot1(forceMag){
         showticklabels: false
       },
       yaxis: {
-        range: [-1,9],
+        range: [-2,9],
         showgrid: true,
         zeroline: false,
         showline: true,
@@ -162,8 +162,8 @@ shapesBasic=shape
 });
 
 let x2a = [], x2b = [], y2a = [], y2b = [];
-x2a = [nod_coor_x[0], nod_coor_x[1], nod_coor_x[3], nod_coor_x[5], nod_coor_x[4], nod_coor_x[3]];
-y2a = [nod_coor_y[0], nod_coor_y[1], nod_coor_y[3], nod_coor_y[5], nod_coor_y[4], nod_coor_y[3]];
+x2a = [nod_coor_x[0], nod_coor_x[1], nod_coor_x[3], nod_coor_x[5], nod_coor_x[4], nod_coor_x[3], nod_coor_x[2]];
+y2a = [nod_coor_y[0], nod_coor_y[1], nod_coor_y[3], nod_coor_y[5], nod_coor_y[4], nod_coor_y[3], nod_coor_y[2]];
 
 x2b = [nod_coor_x[2], nod_coor_x[4], nod_coor_x[1], nod_coor_x[2], nod_coor_x[0]];
 y2b = [nod_coor_y[2], nod_coor_y[4], nod_coor_y[1], nod_coor_y[2], nod_coor_y[0]];
@@ -264,6 +264,9 @@ function updatePlot2(forceMag){
         color: Math.random()*50,
         size: 10
       },
+      line: {
+        dash: 'dot'
+        },
       connectgaps: true
     }; 
 
@@ -276,6 +279,9 @@ function updatePlot2(forceMag){
         color: Math.random()*50,
         size: 10
       },
+      line: {
+        dash: 'dot'
+    },
       connectgaps: true
     }; 
 
@@ -314,7 +320,7 @@ function updatePlot2(forceMag){
       annotations: [
         {
           x: 4.5 + (forceMag/10),
-          y: coord[1][1],
+          y: coordBasic[1][1],
           xref: 'x',
           yref: 'y',
           text: 'F',
