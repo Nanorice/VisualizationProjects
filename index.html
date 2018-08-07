@@ -5,15 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Imperial Visualisations</title>
     <link rel="icon" href="https://www.imperial.ac.uk/T4Assets/favicon-196x196.png" type="image/x-icon">
-    <link rel="stylesheet" href="https://rawgit.com/cydcowley/public-test-data/master/Style2.css">
+    <link rel="stylesheet" href="https://rawgit.com/Imperial-visualizations/Physics-Visualizations/master/css/skeleton.css">
+    <link rel="stylesheet" href="https://rawgit.com/Imperial-visualizations/Physics-Visualizations/master/css/style.css">  
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src = "http://www.numericjs.com/lib/numeric-1.2.6.js"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.js"></script>
     <link rel="stylesheet" href="myStyleSheet.css">
-    <!-- <script src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script> -->
-    <!-- <link rel="stylesheet" href="https://rawgit.com/Imperial-visualizations/Physics-Visualizations/master/css/skeleton.css">
-    <link rel="stylesheet" href="https://rawgit.com/Imperial-visualizations/Physics-Visualizations/master/css/style.css"> -->
     <style>
         .tooltip {
             position: relative;
@@ -32,7 +30,7 @@
             /* Position the tooltip */
             position: absolute;
             z-index: 1;
-            top: -5px;
+            top: 10px;
             left: 105%; 
         }
 
@@ -65,7 +63,7 @@
       <h1> FEA: Longitudinal Rod</h1>
 
 
-      <div class = "seven columns" id = 'graphs'>
+      <div class = "six columns" id = 'graphs'>
 
         <div class = "row">&emsp;</div>
 
@@ -73,24 +71,31 @@
           
           <div class = "tooltip">
             <div class = "row">
-                <div id = "graph1"></div>
+                <div id = "graph1" style = "width:1000px; height:130px;"></div>
             </div>
             <span class = "tooltiptext">Undeformed shape of rod</span>
           </div>
 
           <div class = "tooltip">
             <div class = "row">
-                <div id="graph2"></div>
+                <div id="graph2" style = "width:1000px; height:130px;"></div>
             </div>
             <span class = "tooltiptext">Vibrating deformed shape of rod</span>
           </div>
 
           <div class = "tooltip">
             <div class = "row">
-                <div id="graph3"></div>
+                <div id="graph3" style = "width:1000px; height:180px;"></div>
             </div>
             <span class = "tooltiptext">Mode shapes of rod with displacements implemented in transverse direction</span>
           </div>
+
+          <div class = "tooltip">
+              <div class = "row" align: 'center'>
+                  <div id="graph4" style = "width:1000px; height:180px;"></div>
+              </div>
+              <span class = "tooltiptext">Mode shapes of rod with displacements implemented in transverse direction</span>
+            </div>
 
         </div>
 
@@ -98,58 +103,125 @@
 
       <div class = "five columns" id = "interface">
 
-        <div class = "row">&emsp;</div>
-        <div class = "row">&emsp;</div>
+        <!-- <div class = "row">&emsp;</div>
+        <div class = "row">&emsp;</div> -->
 
-        <div class = "row">
 
-          <div class = "five columns">
+        <!-- <div id='E'>
             <div class = "tooltip">
               <label class = "sliderTitle">
-                Young's Modulus (E):&emsp;
+                Young's Modulus (E):&emsp;<br>
                 <span id = "EDisplay"></span>
               </label>
               <span class = "tooltiptext">Measures the stiffness of the material, higher E gives stiffer behaviour.</span>
             </div>
+            <span class = "sliderMin">low</span>
             <input type="range" id="EInput" min = "1" max = "5" value = "3" step = "0.1">
-            <span class = "sliderMin">low</span><span class = "sliderMax">high</span>
-          </div>
+            <span class = "sliderMax">high</span>
+        </div> -->
 
-          <div class = "two columns">&emsp;</div>
+        <div class="twelve columns">
+            <br>
+            <div class = "tooltip">
+              <h6>Young's Modulus (E)</h6>
+              <span class = "tooltiptext">Measures the stiffness of the material, higher E gives stiffer behaviour.</span>
+            </div>
+  
+            <div class="row">
+                <div class="nine columns" style="font-size: large">
+                    <label class="label">low</label>
+                </div>
 
-          <div class = "five columns">
+                <div class="three columns" style="font-size: large">
+                    <label class="label">high</label>
+                </div>
+
+                <input type="range" id="EInput" min = "1" max = "5" value = "3" step = "0.1">            
+            </div>
+
+        </div>
+
+        <!-- <div class = "row">&emsp;</div>
+        <div class = "row">&emsp;</div> -->
+
+
+        <!-- <div id='rho'>
             <div class = "tooltip">
               <label class = "sliderTitle" class =>
-                Density (&rho;):&emsp;
+                Density (&rho;):&emsp;<br>
                 <span id = "rhoDisplay"></span>
               </label>
               <span class = "tooltiptext">Higher &rho; gives stiffer behaviour.</span>
             </div>
+            <span class = "sliderMin">low</span>
             <input type="range" id="rhoInput" min = "1" max = "5" value = "3" step = "0.1">
-            <span class = "sliderMin">low</span><span class = "sliderMax">high</span>
-          </div>
+            <span class = "sliderMax">high</span>
+        </div> -->
+
+        <div class="twelve columns">
+            <br>
+            <div class = "tooltip">
+              <h6>Density (&rho;)</h6>
+              <span class = "tooltiptext">Higher &rho; gives stiffer behaviour.</span>            
+            </div>
+  
+            <div class="row">
+                <div class="nine columns" style="font-size: large">
+                    <label class="label">low</label>
+                </div>
+
+                <div class="three columns" style="font-size: large">
+                    <label class="label">high</label>
+                </div>
+
+                <input type="range" id="rhoInput" min = "1" max = "5" value = "3" step = "0.1">            
+            </div>
 
         </div>
 
-        <div class = "row">
+        <!-- <div class = "row">&emsp;</div>
+        <div class = "row">&emsp;</div> -->
 
-          <div class = "five columns">
+        <!-- <div id='A'>
             <div class = "tooltip">
               <label class = "sliderTitle">
-                Cross-sectional area (A):&emsp;
+                Cross-sectional area (A):&emsp;<br>
                 <span id = "EDisplay"></span>
               </label>
               <span class = "tooltiptext">Larger cross-sectional area gives stiffer behaviour.</span>
             </div>
+            <br>
+            <span class = "sliderMin">small</span>
             <input type="range" id="aInput" min = "1" max = "5" value = "3" step = "0.1">
-            <span class = "sliderMin">small</span><span class = "sliderMax">large</span>
-          </div>
+            <span class = "sliderMax">large</span>
+        </div> -->
           
-          <div class = "two columns">&emsp;</div>
+        <div class="twelve columns">
+            <br>
+            <div class = "tooltip">
+              <h6>Cross-sectional area (A)</h6>
+              <span class = "tooltiptext">Larger cross-sectional area gives stiffer behaviour.</span>           
+            </div>
+  
+            <div class="row">
+                <div class="nine columns" style="font-size: large">
+                    <label class="label">low</label>
+                </div>
+
+                <div class="three columns" style="font-size: large">
+                    <label class="label">high</label>
+                </div>
+
+                <input type="range" id="aInput" min = "1" max = "5" value = "3" step = "0.1">           
+            </div>
 
         </div>
 
-        <div id="elementNum">
+        <!-- <div class = "row">&emsp;</div>
+
+        <div class = "row">&emsp;</div> -->
+
+        <!-- <div id="elementNum">
           <div class = "tooltip">
             <label for="element" class="sliderTitle">
               Number of Elements:
@@ -157,11 +229,34 @@
             </label>
             <span class = "tooltiptext">Adjust the number of elements you want to discritize the rod to see the ddiffernece.</span>
           </div>
+          <span class="sliderMin">1</span>
           <input type="range" id="element" name="element" min="1" max="24" value="24" oninput="handleElement()">
-          <span class="sliderMin">1</span><span class="sliderMax">24</span>
+          <span class="sliderMax">24</span>
+        </div> -->
+
+        <div class="twelve columns">
+            <br>
+            <div class = "tooltip">
+              <h6>Number of Elements: <span id="elementDisplay">24</span></h6>
+              
+              <span class = "tooltiptext">Adjust the number of elements you want to discritize the rod to see the differnece.</span>          
+            </div>
+  
+            <div class="row">
+                <div class="nine columns" style="font-size: large">
+                    <label class="label">1</label>
+                </div>
+
+                <div class="three columns" style="font-size: large">
+                    <label class="label">24</label>
+                </div>
+                <input type="range" id="element" name="element" min="1" max="24" value="24" oninput="handleElement()">          
+            </div>
+
         </div>
 
-        <div id="modeShapes">
+        <!-- <div class = "row">&emsp;</div> -->
+        <!-- <div id="modeShapes">
           <div class = "tooltip">
             <label class="sliderTitle">
               Display Mode Shape:
@@ -169,18 +264,41 @@
             </label>
             <span class = "tooltiptext">Corresponds to the total DoF, note however only the first few modes are valid depending on the no. of elements.</span>
           </div>
-
+          <span class="sliderMin">1</span>
+          
           <input type="range" id="modeIndex" name="mode" min="1" max="25" value="1" step="1">
-          <span class="sliderMin">1</span><span class="sliderMax" id="sliderMax">25</span>
+          <span class="sliderMax" id="sliderMax">25</span>
+        </div> -->
+        <!-- <div class = "row">&emsp;</div> -->
+
+        <div class="twelve columns">
+            <br>
+            <div class = "tooltip">
+              <h6>Display Mode Shape: <span id="ModeDisplay">1</span></h6>
+              <span class = "tooltiptext">Corresponds to the total DoF, note however only the first few modes are valid depending on the no. of elements.</span>         
+            </div>
+  
+            <div class="row">
+                <div class="nine columns" style="font-size: large">
+                    <span class="sliderMin">1</span>
+                </div>
+
+                <div class="three columns" style="font-size: large">
+                    <span class="sliderMax" id="sliderMax">25</span>
+                </div>
+                <input type="range" id="modeIndex" name="mode" min="1" max="25" value="1" step="1">         
+            </div>
+
         </div>
 
+        <div class = "row">&emsp;</div>
         <div class = row>
-          <div class="start button" id="start">Start</div>
+          <div class="start button" id="start"><h6>Start</h6></div>&emsp;&emsp;
           <!-- <div class="theory button" id="theory" href='RodPage1.html'>Theory</div> -->
           <a href="RodPage1.html" target="_blank">Go to the Theory</a>
         </div>
         <!-- <div class='row'><a href="RodPage1.html" target="_blank">Theory</a></div> -->
-
+    </div>
 
         <div id="guideModal" class="modal">
             <div class="modalContent modalContentH" id="modal_1">

@@ -331,6 +331,13 @@ function updatePlot2(forceMag){
 
 // plot for 2.3
 
+// https://cdn.rawgit.com/Nanorice/VisualizationProjects/0ab56e2c/deformedRedund.json
+
+let shapesVirtual = {};
+$.getJSON('https://cdn.rawgit.com/Nanorice/VisualizationProjects/0ab56e2c/deformedRedund.json',function(shape){
+  shapesVirtual=shape
+});
+
 let x3a = [], x3b = [], y3a = [], y3b = [];
 x3a = [nod_coor_x[0], nod_coor_x[1], nod_coor_x[3], nod_coor_x[5], nod_coor_x[4], nod_coor_x[3], 5+(10/3)];
 y3a = [nod_coor_y[0], nod_coor_y[1], nod_coor_y[3], nod_coor_y[5], nod_coor_y[4], nod_coor_y[3], 5];
@@ -421,6 +428,33 @@ var data3 = [trace3a, trace3b];
 
 Plotly.newPlot('graph3', data3, layout3)
 
+function updatePlot3(virtualForce){
+  let force = 1e6/20*virtualForce;
+  // console.log(forceMag)
+  let coord = shapes['deformedRedundCoord_' + virtualForce];
+  // console.log(coord)
+
+  x3a = [coord[0][0], coord[0][1], coord[0][3], coord[0][5], coord[0][4], coord[0][3]];
+  y3a = [coord[1][0], coord[1][1], coord[1][3], coord[1][5], coord[1][4], coord[1][3]];
+
+  x3b = [coord[0][2], coord[0][4], coord[0][1], coord[0][2], coord[0][0]];
+  y3b = [coord[1][2], coord[1][4], coord[1][1], coord[1][2], coord[1][0]];
+
+  trace3a = {
+    x: x3a,
+    y: y3a,
+}; 
+
+  trace3b = {
+    x: x3b,
+    y: y3b, 
+};
+
+data3 = [trace3a, trace3b];
+
+Plotly.react('graph3', data3, layout3)
+}
+
 function handleX(){
   let x = parseFloat($("#x").val());
   $("#xDisplay").html(x);
@@ -431,27 +465,27 @@ function calY(x){
   return 1.5*x-7.5;
 }
 
-function updatePlot3(x){
-  x3a = [nod_coor_x[0], nod_coor_x[1], nod_coor_x[3], nod_coor_x[5], nod_coor_x[4], nod_coor_x[3], 15-x];
-  y3a = [nod_coor_y[0], nod_coor_y[1], nod_coor_y[3], nod_coor_y[5], nod_coor_y[4], nod_coor_y[3], calY(15-x)];
+// function updatePlot3(x){
+//   x3a = [nod_coor_x[0], nod_coor_x[1], nod_coor_x[3], nod_coor_x[5], nod_coor_x[4], nod_coor_x[3], 15-x];
+//   y3a = [nod_coor_y[0], nod_coor_y[1], nod_coor_y[3], nod_coor_y[5], nod_coor_y[4], nod_coor_y[3], calY(15-x)];
   
-  x3b = [x, nod_coor_x[2], nod_coor_x[4], nod_coor_x[1], nod_coor_x[2], nod_coor_x[0]];
-  y3b = [calY(x), nod_coor_y[2], nod_coor_y[4], nod_coor_y[1], nod_coor_y[2], nod_coor_y[0]];
+//   x3b = [x, nod_coor_x[2], nod_coor_x[4], nod_coor_x[1], nod_coor_x[2], nod_coor_x[0]];
+//   y3b = [calY(x), nod_coor_y[2], nod_coor_y[4], nod_coor_y[1], nod_coor_y[2], nod_coor_y[0]];
 
-  trace3a = {
-      x: x3a,
-      y: y3a,
-  }; 
+//   trace3a = {
+//       x: x3a,
+//       y: y3a,
+//   }; 
   
-  trace3b = {
-      x: x3b,
-      y: y3b,
-  };
+//   trace3b = {
+//       x: x3b,
+//       y: y3b,
+//   };
 
-  data3 = [trace3a, trace3b];
+//   data3 = [trace3a, trace3b];
   
-  Plotly.react('graph3', data3, layout3)
-}
+//   Plotly.react('graph3', data3, layout3)
+// }
 
 function handleForce(){
   let forceMag = parseFloat($("#forceMag").val());

@@ -14,15 +14,15 @@ allShapes=allShape
 
 var layout12 = {
   autosize: true,
-    width: 500,
-    height: 130,
-    margin: {
-      l: 50,
-      r: 50,
-      b: 100,
-      t: 100,
-      pad: 4
-    },
+    width: 900,
+    height: 200,
+    // margin: {
+    //   l: 50,
+    //   r: 50,
+    //   b: 100,
+    //   t: 100,
+    //   pad: 4
+    // },
   xaxis: {
     range: [-1,11],
     showgrid: false,
@@ -46,15 +46,15 @@ var layout12 = {
 
 var layout3 = {
   autosize: true,
-    width: 500,
+    width: 900,
     height: 300,
-    margin: {
-      l: 50,
-      r: 50,
-      b: 100,
-      t: 100,
-      pad: 4
-    },
+    // margin: {
+    //   l: 50,
+    //   r: 50,
+    //   b: 100,
+    //   t: 100,
+    //   pad: 4
+    // },
   xaxis: {
     range: [-1,11],
     showgrid: false,
@@ -161,6 +161,7 @@ function handleElement(){
   updatePlot1(elementNumber);
   // updatePlot2(elementNumber);
   // updatePlot3(elementNumber);
+  updateFreq(elementNumber);
 }
 
 
@@ -343,6 +344,146 @@ function begin_animation(){
   };
 
 }
+
+
+/** frequency plot */
+let freq= {};
+$.getJSON('https://cdn.rawgit.com/Nanorice/VisualizationProjects/a01923b7/freq.json',function(allShape){
+freq=allShape
+console.log(freq)
+});
+let plot=[40.69640365427757, 40.69640365427757, 40.78568886042779, 40.93473242424505, 41.14384094851124, 41.41334652847407, 41.74349574199656, 42.13428573559267, 42.585229108689596, 43.095022721126256, 43.661087942079945, 44.27894199581814, 44.94135403224737, 45.63723987067282, 46.35026466372886, 47.05716771950725, 47.72592025595796, 48.31400056232787, 48.7673365344381, 49.020791061359375, 49.00131588720572, 48.63479025092247, 47.85672510919713, 46.62530423219501, 44.93319362789609];
+let mode=[];
+for (let i=1;i<25;i++){
+  mode[i]=i;
+};
+mode[0]=mode[1];
+let freqPlot = {
+  x:mode,
+  y:plot,
+  type: 'scatter',
+  mode: 'markers+lines',
+  marker: {
+    color: Math.random()*50,
+    size: 10
+  },
+  connectgaps: false
+}; 
+
+var layout4 = {
+  autosize: true,
+  width: 600,
+  height: 300,
+  margin: {
+    l: 50,
+    r: 50,
+    b: 50,
+    t: 50,
+    pad: 4
+  },
+  xaxis: {
+    autorange: true,
+    showgrid: true,
+    zeroline: false,
+    showline: true,
+    autotick: true,
+    ticks: '',
+    showticklabels: true
+  },
+  yaxis: {
+    autorange: true,
+    showgrid: true,
+    zeroline: false,
+    showline: true,
+    autotick: true,
+    ticks: '',
+    showticklabels: true
+  },
+  showlegend:true,
+  // annotations: [
+  //   {
+  //     x: 4.5,
+  //     y: 7.5,
+  //     xref: 'x',
+  //     yref: 'y',
+  //     text: 'F',
+  //     showarrow: true,
+  //     arrowhead: 2,
+  //     ax: -40,
+  //     ay: 0
+  //   }
+  // ]
+}
+
+var data4 = [freqPlot];
+
+Plotly.newPlot('graph4',data4,layout4)
+
+function updateFreq(element){
+  let plot = freq['Freq_' + element];
+  // console.log(plot)
+  freqPlot = {
+    x:mode,
+    y:plot,
+    type: 'scatter',
+    mode: 'markers+lines',
+    marker: {
+      color: Math.random()*50,
+      size: 10
+    },
+    connectgaps: false
+  }; 
+  
+  layout4 = {
+    autosize: true,
+    width: 600,
+    height: 300,
+    margin: {
+      l: 50,
+      r: 50,
+      b: 50,
+      t: 50,
+      pad: 4
+    },
+    xaxis: {
+      autorange: true,
+      showgrid: true,
+      zeroline: false,
+      showline: true,
+      autotick: true,
+      ticks: '',
+      showticklabels: true
+    },
+    yaxis: {
+      autorange: true,
+      showgrid: true,
+      zeroline: false,
+      showline: true,
+      autotick: true,
+      ticks: '',
+      showticklabels: true
+    },
+    showlegend:true,
+    // annotations: [
+    //   {
+    //     x: 4.5,
+    //     y: 7.5,
+    //     xref: 'x',
+    //     yref: 'y',
+    //     text: 'F',
+    //     showarrow: true,
+    //     arrowhead: 2,
+    //     ax: -40,
+    //     ay: 0
+    //   }
+    // ]
+  }
+  
+  data4 = [freqPlot];
+
+  Plotly.react('graph4',data4,layout4)
+}
+
 
 /** --------------------------- Function for modal ---------------------------- **/
 
