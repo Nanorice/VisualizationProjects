@@ -771,27 +771,27 @@ function updatePlot4(x,forceMag){
         ay: 0
       },
       {
-      x: coordComCom[3],
-      y: coordComCom[9],
-      xref: 'x',
-      yref: 'y',
-      text: 'x',
-      showarrow: true,
-      arrowhead: 2,
-      ax: 15,
-      ay: -30
-    },
-    {
-      x: coordComCom[2],
-      y: coordComCom[8],
-      xref: 'x',
-      yref: 'y',
-      text: 'x',
-      showarrow: true,
-      arrowhead: 2,
-      ax: -15,
-      ay: 30
-    }
+        x: coordComCom[3],
+        y: coordComCom[9],
+        xref: 'x',
+        yref: 'y',
+        text: 'x',
+        showarrow: true,
+        arrowhead: 2,
+        ax: 15,
+        ay: -30
+      },
+      {
+        x: coordComCom[2],
+        y: coordComCom[8],
+        xref: 'x',
+        yref: 'y',
+        text: 'x',
+        showarrow: true,
+        arrowhead: 2,
+        ax: -15,
+        ay: 30
+      }
     ]
   }
 

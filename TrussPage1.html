@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Imperial visualisation</title>
+    <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <link rel="stylesheet" href="https://rawgit.com/Imperial-visualizations/Physics-Visualizations/master/css/skeleton.css">
+    <link rel="stylesheet" href="https://rawgit.com/Imperial-visualizations/Physics-Visualizations/master/css/style.css">    <!-- <script src="mathjax/MathJax.js?config=TeX-AMS-MML_SVG"></script> -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+      tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+      }
+      });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <style>
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 170px;
+            background-color: #003E74;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 0;
+        
+            /* Position the tooltip */
+            position: absolute;
+            z-index: 1;
+            top: -5px;
+            left: 105%; 
+        }
+
+        .tooltip .tooltiptext::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            right: 100%;
+            margin-top: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: transparent #003E74 transparent transparent;
+        }
+        
+        .tooltip:hover .tooltiptext {
+            opacity: 0.8;
+            visibility: visible;
+        }
+      </style>
+</head>
+
+<body>
+
+    <p>For a framework the unit load method gives the deflection at the point where the
+        virtual unit load is applied and in the direction of the unit load as</p>
+        
+
+    <script src="https://rawgit.com/Imperial-visualizations/Physics-Visualizations/master/css/navigator.js"></script>
+    <script src = "plotPage1.js"></script>
+
+</body>
+
+</html>

@@ -428,18 +428,18 @@ var layout4 = {
     showgrid: true,
     zeroline: false,
     showline: true,
-    autotick: false,
+    autotick: true,
     ticks: '',
-    showticklabels: false
+    showticklabels: true
   },
   yaxis: {
     autorange: true,
     showgrid: true,
     zeroline: false,
     showline: true,
-    autotick: false,
+    autotick: true,
     ticks: '',
-    showticklabels: false
+    showticklabels: true
   },
   showlegend:false,
   annotations: [
@@ -450,7 +450,7 @@ var layout4 = {
       xanchor: 'right',
       y: 0,
       yanchor: 'bottom',
-      text: 'mode number',
+      text: 'Mode number',
       font: {
         color: "black",
         size: 20
@@ -463,7 +463,7 @@ var layout4 = {
       xanchor: 'left',
       y: 1,
       yanchor: 'top',
-      text: 'normalized frequency',
+      text: 'Frequency difference',
       font: {
         color: "black",
         size: 20
@@ -557,7 +557,7 @@ function updateFreq(element,mode){
         xanchor: 'right',
         y: 0,
         yanchor: 'bottom',
-        text: 'mode number',
+        text: 'Mode number',
         font: {
           color: "black",
           size: 20
@@ -570,7 +570,7 @@ function updateFreq(element,mode){
         xanchor: 'left',
         y: 1,
         yanchor: 'top',
-        text: 'normalized frequency',
+        text: 'Frequency difference',
         font: {
           color: "black",
           size: 20
