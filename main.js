@@ -148,6 +148,7 @@ Plotly.newPlot('graph3', data3, layout3)
 
 function handleElement(){
   let elementNumber = parseFloat($("#element").val());
+  let mode = parseFloat($("#modeIndex").val());
   $("#element").on("input",reset(elementNumber));
   // .on('change',getShape(elementNumber));
   $("#elementDisplay").html(elementNumber);
@@ -161,8 +162,12 @@ function handleElement(){
   updatePlot1(elementNumber);
   // updatePlot2(elementNumber);
   // updatePlot3(elementNumber);
-  updateFreq(elementNumber);
+  updateFreq(elementNumber,mode);
 }
+
+// function handleMode(){
+
+// }
 
 
 function updatePlot1(element) {
@@ -372,7 +377,7 @@ let freqPlot = {
 
 var layout4 = {
   autosize: true,
-  width: 600,
+  width: 750,
   height: 300,
   margin: {
     l: 50,
@@ -386,40 +391,56 @@ var layout4 = {
     showgrid: true,
     zeroline: false,
     showline: true,
-    autotick: true,
+    autotick: false,
     ticks: '',
-    showticklabels: true
+    showticklabels: false
   },
   yaxis: {
     autorange: true,
     showgrid: true,
     zeroline: false,
     showline: true,
-    autotick: true,
+    autotick: false,
     ticks: '',
-    showticklabels: true
+    showticklabels: false
   },
-  showlegend:true,
-  // annotations: [
-  //   {
-  //     x: 4.5,
-  //     y: 7.5,
-  //     xref: 'x',
-  //     yref: 'y',
-  //     text: 'F',
-  //     showarrow: true,
-  //     arrowhead: 2,
-  //     ax: -40,
-  //     ay: 0
-  //   }
-  // ]
+  showlegend:false,
+  annotations: [
+    {
+      xref: 'paper',
+      yref: 'paper',
+      x: 1,
+      xanchor: 'right',
+      y: 0,
+      yanchor: 'bottom',
+      text: 'mode number',
+      font: {
+        color: "black",
+        size: 20
+      },
+      showarrow: false
+    }, {
+      xref: 'paper',
+      yref: 'paper',
+      x: 0,
+      xanchor: 'left',
+      y: 1,
+      yanchor: 'top',
+      text: 'normalized frequency difference',
+      font: {
+        color: "black",
+        size: 20
+      },
+      showarrow: false
+    }
+  ]
 }
 
 var data4 = [freqPlot];
 
 Plotly.newPlot('graph4',data4,layout4)
 
-function updateFreq(element){
+function updateFreq(element,mode){
   let plot = freq['Freq_' + element];
   // console.log(plot)
   freqPlot = {
@@ -428,15 +449,17 @@ function updateFreq(element){
     type: 'scatter',
     mode: 'markers+lines',
     marker: {
-      color: Math.random()*50,
+      color: 'Math.random()*50',
       size: 10
     },
     connectgaps: false
   }; 
+
+  // console.log(plot)
   
   layout4 = {
     autosize: true,
-    width: 600,
+    width: 750,
     height: 300,
     margin: {
       l: 50,
@@ -463,20 +486,61 @@ function updateFreq(element){
       ticks: '',
       showticklabels: true
     },
-    showlegend:true,
-    // annotations: [
-    //   {
-    //     x: 4.5,
-    //     y: 7.5,
-    //     xref: 'x',
-    //     yref: 'y',
-    //     text: 'F',
-    //     showarrow: true,
-    //     arrowhead: 2,
-    //     ax: -40,
-    //     ay: 0
-    //   }
-    // ]
+    showlegend:false,
+    annotations: [
+      {
+        x: mode-1,
+        y: plot[mode-1],
+        xref: 'x',
+        yref: 'y',
+        text: 'current mode',
+        showarrow: true,
+        font: {
+          family: 'Courier New, monospace',
+          size: 16,
+          color: '#ffffff'
+        },
+        align: 'center',
+        arrowhead: 2,
+        arrowsize: 1,
+        arrowwidth: 2,
+        arrowcolor: '#636363',
+        ax: 0,
+        ay: -50,
+        bordercolor: '#c7c7c7',
+        borderwidth: 2,
+        borderpad: 4,
+        bgcolor: '#003E74',
+        opacity: 0.8
+      },
+      {
+        xref: 'paper',
+        yref: 'paper',
+        x: 1,
+        xanchor: 'right',
+        y: 0,
+        yanchor: 'bottom',
+        text: 'mode number',
+        font: {
+          color: "black",
+          size: 20
+        },
+        showarrow: false
+      }, {
+        xref: 'paper',
+        yref: 'paper',
+        x: 0,
+        xanchor: 'left',
+        y: 1,
+        yanchor: 'top',
+        text: 'normalized frequency difference',
+        font: {
+          color: "black",
+          size: 20
+        },
+        showarrow: false
+      }
+    ]
   }
   
   data4 = [freqPlot];
