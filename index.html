@@ -49,7 +49,7 @@
             opacity: 0.8;
             visibility: visible;
         }
-        </style>
+    </style>
   </head>
 
   <body>
@@ -60,7 +60,7 @@
     </div>
 
     <div class="container">
-      <h1> FEA: Longitudinal Rod</h1>
+      <h3> FEA: Longitudinal vibration of free-free rod</h3>
 
 
       <div class = "six columns" id = 'graphs'>
@@ -70,31 +70,31 @@
         <div class = "eleven columns">
           
           <div class = "tooltip">
-            <div class = "row" align= 'center'>
-                <div id = "graph1" style = "width:1000px; height:130px;"></div>
+            <div class = "row" align='left'>
+                <div id = "graph1" style = "width:600px; height:100px;"></div>
             </div>
             <span class = "tooltiptext">Undeformed shape of rod</span>
           </div>
 
           <div class = "tooltip">
-            <div class = "row" align= 'center'>
-                <div id="graph2" style = "width:1000px; height:130px;"></div>
+            <div class = "row">
+                <div id="graph2" style = "width:600px; height:100px;"></div>
             </div>
             <span class = "tooltiptext">Vibrating deformed shape of rod</span>
           </div>
 
           <div class = "tooltip">
-            <div class = "row" align= 'center'>
-                <div id="graph3" style = "width:1000px; height:180px;"></div>
+            <div class = "row">
+                <div id="graph3" style = "width:600px; height:150px;"></div>
             </div>
             <span class = "tooltiptext">Mode shapes of rod with displacements implemented in transverse direction</span>
           </div>
 
           <div class = "tooltip">
-              <div class = "row" align= 'center'>
-                  <div id="graph4" style = "width:1000px; height:180px;"></div>
+              <div class = "row" align='center'>
+                  <div id="graph4" style = "width:600px; height:270px;"></div>
               </div>
-              <span class = "tooltiptext">Mode shapes of rod with displacements implemented in transverse direction</span>
+              <span class = "tooltiptext">Normalized frequency from reference value obtained from analytical result.</span>
             </div>
 
         </div>
@@ -128,11 +128,11 @@
             </div>
   
             <div class="row">
-                <div class="nine columns" style="font-size: large">
+                <div class="nine columns" style="font-size: small">
                     <label class="label">low</label>
                 </div>
 
-                <div class="three columns" style="font-size: large">
+                <div class="three columns" style="font-size: small">
                     <label class="label">high</label>
                 </div>
 
@@ -166,11 +166,11 @@
             </div>
   
             <div class="row">
-                <div class="nine columns" style="font-size: large">
+                <div class="nine columns" style="font-size: small">
                     <label class="label">low</label>
                 </div>
 
-                <div class="three columns" style="font-size: large">
+                <div class="three columns" style="font-size: small">
                     <label class="label">high</label>
                 </div>
 
@@ -204,11 +204,11 @@
             </div>
   
             <div class="row">
-                <div class="nine columns" style="font-size: large">
+                <div class="nine columns" style="font-size: small">
                     <label class="label">low</label>
                 </div>
 
-                <div class="three columns" style="font-size: large">
+                <div class="three columns" style="font-size: small">
                     <label class="label">high</label>
                 </div>
 
@@ -243,11 +243,11 @@
             </div>
   
             <div class="row">
-                <div class="nine columns" style="font-size: large">
+                <div class="nine columns" style="font-size: small">
                     <label class="label">1</label>
                 </div>
 
-                <div class="three columns" style="font-size: large">
+                <div class="three columns" style="font-size: small">
                     <label class="label">24</label>
                 </div>
                 <input type="range" id="element" name="element" min="1" max="24" value="24" oninput="handleElement()">          
@@ -279,11 +279,11 @@
             </div>
   
             <div class="row">
-                <div class="nine columns" style="font-size: large">
+                <div class="nine columns" style="font-size: small">
                     <span class="sliderMin">1</span>
                 </div>
 
-                <div class="three columns" style="font-size: large">
+                <div class="three columns" style="font-size: small">
                     <span class="sliderMax" id="sliderMax">25</span>
                 </div>
                 <input type="range" id="modeIndex" name="mode" min="1" max="25" value="1" step="1" oninput="handleElement()">         

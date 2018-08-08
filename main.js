@@ -12,10 +12,11 @@ allShapes=allShape
 });
 
 
-var layout12 = {
+var layout1 = {
+  title:'Undeformed rod',
   autosize: true,
-    width: 900,
-    height: 200,
+    width: 600,
+    height: 170,
     // margin: {
     //   l: 50,
     //   r: 50,
@@ -44,10 +45,45 @@ var layout12 = {
   showlegend:false
 }
 
-var layout3 = {
+var layout2 = {
+  title:'Longitudinal vibration',
   autosize: true,
-    width: 900,
-    height: 300,
+    width: 600,
+    height: 170,
+    // margin: {
+    //   l: 50,
+    //   r: 50,
+    //   b: 100,
+    //   t: 100,
+    //   pad: 4
+    // },
+  xaxis: {
+    range: [-1,11],
+    showgrid: false,
+    zeroline: false,
+    showline: false,
+    autotick: false,
+    ticks: '',
+    showticklabels: false
+  },
+  yaxis: {
+    range: [-4,4],
+    showgrid: false,
+    zeroline: false,
+    showline: false,
+    autotick: true,
+    ticks: '',
+    showticklabels: false
+  },
+  showlegend:false
+}
+
+
+var layout3 = {
+  title:'Vibration shown transversly',
+  autosize: true,
+    width: 600,
+    height: 200,
     // margin: {
     //   l: 50,
     //   r: 50,
@@ -100,7 +136,7 @@ for (let i = 0; i < 24; i++) {
 }
 
 
-Plotly.newPlot('graph1', data1, layout12);
+Plotly.newPlot('graph1', data1, layout1);
 
 // initial plot for figure 2
 
@@ -125,7 +161,7 @@ for (let i = 0; i < 24; i++) {
 }
 
 
-Plotly.newPlot('graph2', data2, layout12);
+Plotly.newPlot('graph2', data2, layout2);
 
 // initial plot for figure 3
 
@@ -193,7 +229,7 @@ function updatePlot1(element) {
     data1.push(trace1[i]);
   }
 
-  Plotly.react('graph1',data1,layout12);
+  Plotly.react('graph1',data1,layout1);
 }
 
 
@@ -376,9 +412,10 @@ let freqPlot = {
 }; 
 
 var layout4 = {
+  title:'Frequency plot',
   autosize: true,
-  width: 750,
-  height: 300,
+  width: 530,
+  height: 270,
   margin: {
     l: 50,
     r: 50,
@@ -426,7 +463,7 @@ var layout4 = {
       xanchor: 'left',
       y: 1,
       yanchor: 'top',
-      text: 'normalized frequency difference',
+      text: 'normalized frequency',
       font: {
         color: "black",
         size: 20
@@ -459,8 +496,8 @@ function updateFreq(element,mode){
   
   layout4 = {
     autosize: true,
-    width: 750,
-    height: 300,
+    width: 530,
+    height: 270,
     margin: {
       l: 50,
       r: 50,
@@ -533,7 +570,7 @@ function updateFreq(element,mode){
         xanchor: 'left',
         y: 1,
         yanchor: 'top',
-        text: 'normalized frequency difference',
+        text: 'normalized frequency',
         font: {
           color: "black",
           size: 20

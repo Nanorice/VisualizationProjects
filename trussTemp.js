@@ -14,8 +14,8 @@ x = [nod_coor_x[0], nod_coor_x[1], nod_coor_x[3], nod_coor_x[5], nod_coor_x[4], 
 y = [nod_coor_y[0], nod_coor_y[1], nod_coor_y[3], nod_coor_y[5], nod_coor_y[4], nod_coor_y[3], nod_coor_y[2], nod_coor_y[4], nod_coor_y[1], nod_coor_y[2], nod_coor_y[0]];
 var layout = {
   autosize: false,
-  width: 800,
-  height: 500,
+  width: 400,
+  height: 400,
   margin: {
     l: 50,
     r: 50,
@@ -49,7 +49,7 @@ var layout = {
       xref: 'x',
       yref: 'y',
       text: 'F',
-      showarrow: false,
+      showarrow: true,
       arrowhead: 2,
       ax: -40,
       ay: 0
@@ -109,8 +109,8 @@ function updatePlot1(forceMag){
     data1 = [shape];
     layout = {
       autosize: false,
-      width: 800,
-      height: 500,
+      width: 400,
+      height: 400,
       margin: {
         l: 50,
         r: 50,
@@ -144,7 +144,7 @@ function updatePlot1(forceMag){
           xref: 'x',
           yref: 'y',
           text: 'F',
-          showarrow: false,
+          showarrow: true,
           arrowhead: 2,
           ax: -40 - (forceMag*1.5),
           ay: 0
@@ -171,8 +171,8 @@ y2b = [nod_coor_y[2], nod_coor_y[4], nod_coor_y[1], nod_coor_y[2], nod_coor_y[0]
 
 var layout2 = {
     autosize: false,
-    width: 800,
-    height: 500,
+    width: 400,
+    height: 400,
     margin: {
       l: 50,
       r: 50,
@@ -206,7 +206,7 @@ var layout2 = {
       xref: 'x',
       yref: 'y',
       text: 'F',
-      showarrow: false,
+      showarrow: true,
       arrowhead: 2,
       ax: -40,
       ay: 0
@@ -289,8 +289,8 @@ function updatePlot2(forceMag){
 
     layout2 = {
       autosize: false,
-      width: 800,
-      height: 500,
+      width: 400,
+      height: 400,
       margin: {
         l: 50,
         r: 50,
@@ -324,7 +324,7 @@ function updatePlot2(forceMag){
           xref: 'x',
           yref: 'y',
           text: 'F',
-          showarrow: false,
+          showarrow: true,
           arrowhead: 2,
           ax: -40 - (forceMag*1.5),
           ay: 0
@@ -355,8 +355,8 @@ y3b = [2.5, nod_coor_y[2], nod_coor_y[4], nod_coor_y[1], nod_coor_y[2], nod_coor
 
 var layout3 = {
     autosize: false,
-    width: 800,
-    height: 500,
+    width: 400,
+    height: 400,
     margin: {
       l: 50,
       r: 50,
@@ -476,8 +476,8 @@ function updatePlot3(x){
   data3 = [trace3a, trace3b];
   layout3 = {
     autosize: false,
-    width: 800,
-    height: 500,
+    width: 400,
+    height: 400,
     margin: {
       l: 50,
       r: 50,
@@ -510,8 +510,8 @@ function updatePlot3(x){
         y: coordVirtual[1][3],
         xref: 'x',
         yref: 'y',
-        text: '1',
-        showarrow: false,
+        text: 'x',
+        showarrow: true,
         arrowhead: 2,
         ax: 15,
         ay: -30
@@ -521,8 +521,8 @@ function updatePlot3(x){
         y: coordVirtual[1][2],
         xref: 'x',
         yref: 'y',
-        text: '1',
-        showarrow: false,
+        text: 'x',
+        showarrow: true,
         arrowhead: 2,
         ax: -15,
         ay: 30
@@ -581,8 +581,8 @@ y4b = [2.5*gradient(nod_coor_x[3],nod_coor_y[3],nod_coor_x[2],nod_coor_y[2]), no
 
 var layout4 = {
     autosize: false,
-    width: 800,
-    height: 500,
+    width: 400,
+    height: 400,
     margin: {
       l: 50,
       r: 50,
@@ -631,7 +631,18 @@ var layout4 = {
         arrowhead: 2,
         ax: -15,
         ay: 30
-      }
+      },
+    {
+      x: 4.5,
+      y: 7.5,
+      xref: 'x',
+      yref: 'y',
+      text: 'F',
+      showarrow: true,
+      arrowhead: 2,
+      ax: -40,
+      ay: 0
+    }
   ]
 }
 let trace4a = {
@@ -664,7 +675,7 @@ Plotly.newPlot('graph4', data4, layout4)
 
 function updatePlot4(x,forceMag){
   let coord = shapes['deformedCoord_' + forceMag];
-  // let coordBasic = shapesBasic['deformedBasicCoord_' + forceMag];
+  let coordBasic = shapesBasic['deformedBasicCoord_' + forceMag];
   // let coordVirtual = shapesVirtual['deformedRedundCoord_' + x];
   let coordComForce = shapesCom['deformedRedundCoord_' + forceMag];
   // console.log(coordComForce)
@@ -719,8 +730,8 @@ function updatePlot4(x,forceMag){
 
   layout4 = {
     autosize: false,
-    width: 800,
-    height: 500,
+    width: 400,
+    height: 400,
     margin: {
       l: 50,
       r: 50,
@@ -747,19 +758,41 @@ function updatePlot4(x,forceMag){
       showticklabels: false
     },
     showlegend:false,
-    // annotations: [
-    //   {
-    //     x: 4.5 + (forceMag/10),
-    //     y: coordBasic[1][1],
-    //     xref: 'x',
-    //     yref: 'y',
-    //     text: 'F',
-    //     showarrow: false,
-    //     arrowhead: 2,
-    //     ax: -40 - (forceMag*1.5),
-    //     ay: 0
-    //   }
-    // ]
+    annotations: [
+      {
+        x: 4.5 + (forceMag/10),
+        y: coordBasic[1][1],
+        xref: 'x',
+        yref: 'y',
+        text: 'F',
+        showarrow: true,
+        arrowhead: 2,
+        ax: -40 - (forceMag*1.5),
+        ay: 0
+      },
+      {
+      x: coordComCom[3],
+      y: coordComCom[9],
+      xref: 'x',
+      yref: 'y',
+      text: 'x',
+      showarrow: true,
+      arrowhead: 2,
+      ax: 15,
+      ay: -30
+    },
+    {
+      x: coordComCom[2],
+      y: coordComCom[8],
+      xref: 'x',
+      yref: 'y',
+      text: 'x',
+      showarrow: true,
+      arrowhead: 2,
+      ax: -15,
+      ay: 30
+    }
+    ]
   }
 
   Plotly.react('graph4',data4,layout4)  
