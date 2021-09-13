@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Show Time</title>
+<script>
+function displayDate(){
+	document.getElementById("demo").innerHTML=Date();
+}
+</script>
+</head>
+<body>
+
+<h1>Hello World</h1>
+
+<p id="demo">paragraph</p> //dsad
+
+<button type="button" onclick="displayDate()">Display Date</button>
+
+</body>
+
+require('control-panel')([{
+  type: 'range',
+  label: 'displacement',
+  min: 0,
+  max: 255,
+  initial: state.displacement
+},
+/*
+{
+  type: 'range',
+  label: 'lineWidth',
+  min: 0,
+  max: 10,
+  initial: state.lineWidth
+},
+*/
+{
+  type: 'select',
+  label: 'mode',
+  options: ['stress', 'x', 'y', 'z', 'total'],
+  initial: state.mode
+}, {
+  type: 'checkbox',
+  label: 'ortho',
+  initial: state.ortho
+}, {
+  type: 'checkbox',
+  label: 'elements',
+  initial: state.elements
+}, {
+  type: 'checkbox',
+  label: 'lines',
+  initial: state.lines
+}, {
+  type: 'range',
+  label: 'subdivisions',
+  min: 1,
+  max: 8,
+  step: 1,
+  initial: state.subdivisions
+}, {
+  type: 'button',
+  label: 'open file',
+  action: function () {
+    uploadInput.click();
+  }
+}]).on('input', function (data) {
+  var psubdiv = state.subdivisions;
+  Object.assign(state, data);
+  if (psubdiv !== data.subdivisions) {
+    rebuildMesh();
+  }
+});
+
+</html>
+Ê

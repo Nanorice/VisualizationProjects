@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+
+<body>
+
+  <div class = "wrapper">
+    <div id="chart" style="width:480px; height:400px;"></div>
+      <script>
+        Plotly.d3.csv('cylinder_data.csv', function(err,rows) {
+
+          console.log(rows); // data from csv file
+          var data = [];
+          for (let i = 0; i < rows.length; i++) {
+            data.push(rows.map(row => row[i]));
+          }
+          console.log(data);
+          Plotly.newPlot('chart',[{
+            z:data,
+            type: 'surface'
+          }]);
+        });
+      </script>
+
+</body>
+
+</html>

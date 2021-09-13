@@ -1,0 +1,47 @@
+mat4.ortho(projection, -radius, radius, -aspect * radius, aspect * radius, 0, 65536.0);
+} else {
+mat4.perspective(projection, Math.PI / 4.0, viewportWidth / viewportHeight, 0.125, 65536.0);
+}
+mat4.lookAt(view, eye, center, up);
+mat4.invert(invProjection, projection);
+mat4.invert(invView, view);
+setup({
+eye
+}, body);
+});
+}
+};
+};
+},{"gl-mat4":117}],2:[function(require,module,exports){
+var P_TOL = 1e6;
+var D_TOL = 1e9;
+
+var QUAD_TRIS = [[0, 0], [0, 1], [1, 0], [1, 0], [0, 1], [1, 1]];
+
+function dot3(values, weights) {
+var r = [0, 0, 0];
+for (var i = 0; i < values.length; ++i) {
+var v = values[i];
+var w = weights[i];
+for (var j = 0; j < 3; ++j) {
+r[j] += w * v[j];
+}
+}
+return r;
+}
+
+function pick(array, index) {
+var r = new Array(index.length);
+for (var i = 0; i < index.length; ++i) {
+r[i] = array[index[i]];
+}
+return r;
+}
+
+function cmpP(a, b) {
+return Math.abs(a[0] - b[0]) < P_TOL || Math.abs(a[1] - b[1]) < P_TOL || Math.abs(a[2] - b[2]) < P_TOL;
+}
+
+function cmpD(a, b) {
+return Math.abs(a[0] - b[0]) < D_TOL || Math.abs(a[1] - b[1]) < D_TOL || Math.abs(a[2] - b[2]) < D_TOL;
+}
