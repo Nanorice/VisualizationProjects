@@ -27,9 +27,9 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
+  <!-- <a href="https://github.com/othneildrew/Best-README-Template">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
+  </a> -->
 
   <h3 align="center">Structural Dynamics Visualisations</h3>
 
@@ -47,8 +47,8 @@
   </p>
 </p>
 
-[![Product Name Screen Shot][rod_screenshots]]
-[![Product Name Screen Shot][truss_screenshots]]
+[![Rod modal shapes][rod_screenshots]]
+[![Truss deformations][truss_screenshots]]
 
 
 <!-- LICENSE -->
