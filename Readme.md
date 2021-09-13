@@ -27,9 +27,9 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <!-- <a href="https://github.com/Nanorice/VisualizationProjects">
+  <a href="https://github.com/Nanorice/VisualizationProjects">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a> -->
+  </a>
 
   <h3 align="center">Structural Dynamics Visualisations</h3>
 
