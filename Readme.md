@@ -47,8 +47,8 @@
   </p>
 </p>
 
-[![Rod modal shapes][rod_screenshots]]
-[![Truss deformations][truss_screenshots]]
+![Rod modal shapes][rod_screenshots]
+![Truss deformations][truss_screenshots]
 
 
 <!-- LICENSE -->
@@ -62,17 +62,17 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
-[contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
-[forks-url]: https://github.com/othneildrew/Best-README-Template/network/members
-[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
-[stars-url]: https://github.com/othneildrew/Best-README-Template/stargazers
-[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
-[issues-url]: https://github.com/othneildrew/Best-README-Template/issues
-[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
-[license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[contributors-shield]: https://img.shields.io/github/contributors/Nanorice/VisualizationProjects.svg?style=for-the-badge
+[contributors-url]: https://github.com/Nanorice/VisualizationProjects/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/Nanorice/VisualizationProjects.svg?style=for-the-badge
+[forks-url]: https://github.com/Nanorice/VisualizationProjects/network/members
+[stars-shield]: https://img.shields.io/github/stars/Nanorice/VisualizationProjects.svg?style=for-the-badge
+[stars-url]: https://github.com/Nanorice/VisualizationProjects/stargazers
+[issues-shield]: https://img.shields.io/github/issues/Nanorice/VisualizationProjects.svg?style=for-the-badge
+[issues-url]: https://github.com/Nanorice/VisualizationProjects/issues
+[license-shield]: https://img.shields.io/github/license/Nanorice/VisualizationProjects.svg?style=for-the-badge
+[license-url]: https://github.com/Nanorice/VisualizationProjects/blob/master/LICENSE
+<!-- [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555 -->
 <!-- [linkedin-url]: https://linkedin.com/in/othneildrew -->
 [rod_screenshots]: images/conShapes.jpg
 [truss_screenshots]: images/truss_traces.png
